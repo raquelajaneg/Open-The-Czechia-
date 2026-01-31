@@ -1,8 +1,3 @@
-# 🌍 Open-The-Czechia
-
-**Website criado para guiar pessoas na exploração da República Tcheca.**  
-Este projeto apresenta informações culturais, naturais e urbanas sobre o país, com foco especial em Praga e outras regiões encantadoras.
-
 ## 📁 Estrutura do projeto
 
 - `index.html` – Página inicial
