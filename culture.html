@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culture | Open The Czechia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ====== RESET & BASE STYLES ====== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAFAFF;
+            color: #373B40;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ====== NAVBAR ====== */
+        .navbar {
+            background-color: #A4243B;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-main {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 28px;
+            color: #DDB633;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-main:hover {
+            color: #F0C864;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            font-size: 18px;
+            color: #FAFAFF;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #DDB633;
+        }
+
+        .nav-link.active {
+            background-color: rgba(221, 182, 51, 0.2);
+            color: #DDB633;
+        }
+
+        /* ====== TYPOGRAPHY ====== */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: #A4243B;
+        }
+
+        p {
+            font-family: 'Inter', sans-serif;
+            color: #373B40;
+        }
+
+        /* ====== PAGE HEADER ====== */
+        .culture-header {
+            background: linear-gradient(rgba(164, 36, 59, 0.9), rgba(164, 36, 59, 0.8)),
+                        url('https://images.unsplash.com/photo-1550541233-6c8e1e6f3c6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0 60px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .culture-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #DDB633;
+        }
+
+        .culture-header p {
+            font-family: 'Inter', sans-serif;
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* ====== MAIN CONTENT ====== */
+        .main-content {
+            padding: 40px 0 80px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 42px;
+            color: #A4243B;
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #6B8D74;
+        }
+
+        /* ====== CHURCH TÝN SECTION ====== */
+        .church-section {
+            margin-bottom: 100px;
+        }
+
+        .church-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border: 1px solid rgba(221, 182, 51, 0.2);
+        }
+
+        .church-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .church-image:hover {
+            transform: scale(1.02);
+        }
+
+        .church-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .church-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 36px;
+            color: #A4243B;
+            margin-bottom: 25px;
+            line-height: 1.3;
+        }
+
+        .church-description {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            color: #373B40;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .highlight-box {
+            background-color: rgba(107, 141, 116, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border-left: 5px solid #DDB633;
+        }
+
+        .highlight-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #6B8D74;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .highlight-box p {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: #373B40;
+            line-height: 1.7;
+        }
+
+        /* ====== OTHER PLACES SECTION ====== */
+        .places-section {
+            padding: 80px 0;
+        }
+
+        .places-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .place-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(164, 36, 59, 0.1);
+        }
+
+        .place-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .place-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .place-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .place-card:hover .place-image img {
+            transform: scale(1.05);
+        }
+
+        .place-content {
+            padding: 30px;
+        }
+
+        .place-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #A4243B;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .place-description {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: #373B40;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .place-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(164, 36, 59, 0.1);
+        }
+
+        .place-location {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #6B8D74;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* ====== CULTURAL TIPS ====== */
+        .tips-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(164, 36, 59, 0.05) 0%, rgba(107, 141, 116, 0.05) 100%);
+            border-radius: 20px;
+            margin: 60px 0;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .tip-item {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .tip-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .tip-icon {
+            font-size: 32px;
+            color: #DDB633;
+            margin-bottom: 20px;
+            background: rgba(221, 182, 51, 0.1);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tip-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #A4243B;
+            margin-bottom: 15px;
+        }
+
+        .tip-item p {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: #373B40;
+            line-height: 1.7;
+        }
+
+        /* ====== FOOTER ====== */
+        .footer {
+            background-color: #A4243B;
+            color: #FAFAFF;
+            padding: 70px 40px 30px;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .footer h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 28px;
+            color: #DDB633;
+            margin-bottom: 25px;
+        }
+
+        .footer-info {
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+
+        .footer p {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 30px 20px 0;
+        }
+
+        /* ====== RESPONSIVIDADE ====== */
+        @media (max-width: 992px) {
+            .nav-menu {
+                gap: 15px;
+            }
+            
+            .culture-header h1 {
+                font-size: 42px;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .church-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 30px;
+            }
+            
+            .church-image img {
+                height: 400px;
+            }
+            
+            .places-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .nav-link {
+                font-size: 16px;
+                padding: 6px 12px;
+            }
+            
+            .culture-header {
+                padding: 80px 0 40px;
+            }
+            
+            .culture-header h1 {
+                font-size: 36px;
+            }
+            
+            .culture-header p {
+                font-size: 18px;
+                padding: 0 15px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .church-info h2 {
+                font-size: 32px;
+            }
+            
+            .church-description {
+                font-size: 16px;
+            }
+            
+            .places-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .culture-header h1 {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .church-container {
+                padding: 20px;
+            }
+            
+            .church-image img {
+                height: 300px;
+            }
+            
+            .church-info h2 {
+                font-size: 28px;
+            }
+            
+            .place-title {
+                font-size: 22px;
+            }
+            
+            .tip-item {
+                padding: 20px;
+            }
+            
+            .footer {
+                padding: 50px 20px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="newindex.html" class="logo-main">Open The Czechia</a>
+            <ul class="nav-menu">
+                <li><a href="newindex.html" class="nav-link">Home</a></li>
+                <li><a href="culture.html" class="nav-link active">Culture</a></li>
+                <li><a href="nature.html" class="nav-link">Nature</a></li>
+                <li><a href="tips.html" class="nav-link">Tips</a></li>
+                <li><a href="author.html" class="nav-link">Author</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="culture-header">
+        <div class="container">
+            <h1>Czech Culture & Heritage</h1>
+            <p>Discover the rich history, stunning architecture, and vibrant traditions of the Czech Republic</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-content">
+            <!-- Church Týn Section -->
+            <section class="church-section">
+                <h2 class="section-title">Places You Can't Miss in Prague</h2>
+                
+                <div class="church-container">
+                    <div class="church-image">
+                        <img src="adobe tyn.jpeg" alt="Church of Our Lady before Týn">
+                    </div>
+                    
+                    <div class="church-info">
+                        <h2>Church of Our Lady before Týn</h2>
+                        <p class="church-description">
+                            Dominating the Old Town Square with its iconic twin Gothic spires, the Church of Our Lady before Týn (commonly called Týn Church) is one of Prague's most recognizable landmarks. This stunning 14th-century church has witnessed centuries of history, serving as a symbol of the city's resilience and spiritual heritage.
+                        </p>
+                        
+                        <div class="highlight-box">
+                            <h3><i class="fas fa-history"></i> Historical Significance</h3>
+                            <p>The church played a crucial role during the Hussite Wars and was the main church of the Hussite movement. Its 80-meter high towers offer one of the best views of Prague's historic center.</p>
+                        </div>
+                        
+                        <p class="church-description">
+                            Inside, you'll find a breathtaking Baroque altar, the tomb of Danish astronomer Tycho Brahe, and beautiful Gothic vaulting. The church's asymmetrical towers (one slightly larger than the other) add to its unique character and have inspired artists and photographers for generations.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Other Places Section -->
+            <section class="places-section">
+                <h2 class="section-title">More Cultural Gems</h2>
+                
+                <div class="places-grid">
+                        <div class="place-content">
+                            <h3 class="place-title">
+                                <i class="fas fa-landmark" style="color: #DDB633;"></i>
+                                Prague Castle
+                            </h3>
+                            <p class="place-description">
+                                The largest ancient castle complex in the world, spanning over 70,000 m². A UNESCO World Heritage site that has been the seat of Czech kings, emperors, and presidents for over a thousand years.
+                            </p>
+                            <div class="place-details">
+                                <span class="place-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Hradčany, Prague 1
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charles Bridge -->
+                        <div class="place-content">
+                            <h3 class="place-title">
+                                <i class="fas fa-bridge" style="color: #DDB633;"></i>
+                                Charles Bridge
+                            </h3>
+                            <p class="place-description">
+                                This historic bridge connects the Old Town with Lesser Town, adorned with 30 Baroque statues of saints. Built in 1357, it's one of Prague's most romantic and photographed spots.
+                            </p>
+                            <div class="place-details">
+                                <span class="place-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Between Old Town & Malá Strana
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Jewish Quarter -->
+                            <h3 class="place-title">
+                                <i class="fas fa-synagogue" style="color: #DDB633;"></i>
+                                Jewish Quarter
+                            </h3>
+                            <p class="place-description">
+                                Josefov is one of Europe's best-preserved Jewish quarters, featuring the Old Jewish Cemetery, several synagogues, and the Jewish Museum that tells the story of Prague's Jewish community.
+                            </p>
+                            <div class="place-details">
+                                <span class="place-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Josefov, Prague 1
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cultural Tips -->
+            <section class="tips-section">
+                <h2 class="section-title">Cultural Insights</h2>
+                
+                <div class="tips-grid">
+                    <div class="tip-item">
+                        <div class="tip-icon">
+                            <i class="fas fa-theater-masks"></i>
+                        </div>
+                        <h3>Traditional Festivals</h3>
+                        <p>Experience Prague's vibrant cultural scene through events like the Prague Spring International Music Festival, Christmas Markets, and Easter Markets in the Old Town Square.</p>
+                    </div>
+                    
+                    <div class="tip-item">
+                        <div class="tip-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Culinary Heritage</h3>
+                        <p>Try traditional Czech dishes like svíčková (beef with cream sauce), knedlíky (dumplings), and trdelník (chimney cake) while exploring the city's historic pubs and restaurants.</p>
+                    </div>
+                    
+                    <div class="tip-item">
+                        <div class="tip-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3>Musical Legacy</h3>
+                        <p>Prague is known as the "City of Music." Visit venues where Mozart, Dvořák, and Smetana performed, and attend classical concerts in historic churches and palaces.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <h4>Open The Czechia</h4>
+            <div class="footer-info">
+                <p>Email: opentheczechia@gmail.com</p>
+                <p>@opentheczechia</p>
+            </div>
+            <div class="footer-bottom">
+                © all rights reserved
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
